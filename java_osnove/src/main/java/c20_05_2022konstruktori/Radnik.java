@@ -1,2 +1,4 @@
-package c20_05_2022konstruktori;public class Radnik {
+package c20_05_2022konstruktori;
+
+public class Radnik {
 }

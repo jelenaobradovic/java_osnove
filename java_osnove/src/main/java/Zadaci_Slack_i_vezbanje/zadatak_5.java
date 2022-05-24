@@ -1,6 +1,8 @@
 package Zadaci_Slack_i_vezbanje;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class zadatak_5 {
     //Napisati program koji simulira
@@ -25,6 +27,33 @@ public class zadatak_5 {
     //Apps     YouTube     Google     Gmail     Miro | Online Whiteboard for Visual Collaboration     Confluence     JIRA     Bitbucket     Google Calendar     Timesheet     Google Drive     IX CIKLUS
 
     public static void main(String[] args) {
+        ArrayList<String> bookmarks = new ArrayList<>();
+        bookmarks.add("Apps");
+        bookmarks.add("YouTube");
+        bookmarks.add("Google");
+        bookmarks.add("Gmail");
+        bookmarks.add("Miro | Online Whiteboard for Visual Collaboration");
+        bookmarks.add("Confluence");
+        bookmarks.add("JIRA");
+        bookmarks.add("Bitbucket");
+        bookmarks.add("Google Calendar");
+        bookmarks.add("Timesheet");
+        bookmarks.add("Google Drive");
+        bookmarks.add("IX CIKLUS");
+        Scanner s = new Scanner(System.in);
+        System.out.println("Unesite sirinu pretrazivaca:");
+        int sirina = s.nextInt();
+        int ukupno =0;
+        int i = 0;
+        boolean stampa= true;
+        while (stampa==true)
+        {String bookmark= bookmarks.get(i);
+
+            ukupno=ukupno + 5+ bookmark.length();
+            i++;
+            if (ukupno < sirina){System.out.println(bookmark);}
+            else{stampa=false;}
+        }
 
 
 
