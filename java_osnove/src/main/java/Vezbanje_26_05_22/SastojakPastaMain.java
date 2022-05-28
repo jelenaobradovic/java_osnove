@@ -26,6 +26,15 @@ public class SastojakPastaMain {
         funghi.dodavanjeSastojaka(pecurke);
         funghi.dodavanjeSastojaka(zacini);
 
+
+        Pasta piletinaP = new Pasta();
+
+        piletinaP.dodavanjeSastojaka(spagete);
+        piletinaP.dodavanjeSastojaka(pavlaka);
+        piletinaP.dodavanjeSastojaka(piletina);
+        piletinaP.dodavanjeSastojaka(beliLuk);
+
+
         funghi.stampa();
 
         System.out.println();
@@ -33,6 +42,11 @@ public class SastojakPastaMain {
         funghi.brisanjeSastojaka(pecurke);
 
         funghi.stampa();
+
+        piletinaP.stampa();
+        piletinaP.cenaPaste();
+        piletinaP.brisanjeSastojaka(pavlaka);
+        piletinaP.cenaPaste();
 
 
 

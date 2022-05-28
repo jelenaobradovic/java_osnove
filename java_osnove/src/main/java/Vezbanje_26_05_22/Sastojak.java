@@ -38,7 +38,7 @@ public class Sastojak {
 
     public void stampa()
     {
-        System.out.println(this.naziv + " - " + this.cena + "din.");
+        System.out.println(this.naziv + " - " + this.cena + " din.");
         System.out.println();
     }
 }

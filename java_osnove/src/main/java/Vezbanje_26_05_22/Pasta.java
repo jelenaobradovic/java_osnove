@@ -1,5 +1,6 @@
 package Vezbanje_26_05_22;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.ArrayList;
 
 public class Pasta {
@@ -60,6 +61,7 @@ public class Pasta {
 
         }
         System.out.println("Cena paste je : " + cenaPaste());
+        System.out.println();
     }
 
 
