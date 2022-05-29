@@ -20,8 +20,8 @@ public class FacebookPost {
 
 //metodu reaguj, koja dodaje reakciju u niz
 
-    public void dodajreakciju(Reakcija tipReakcije) {
-        nizReakcija.add(tipReakcije);
+    public void dodajreakciju(Reakcija reakcija) {
+        nizReakcija.add(reakcija);
     }
 
     //(modifikacija za vezbu) Ukoliko se desi situacija
@@ -32,17 +32,6 @@ public class FacebookPost {
     //	 Milan - daje srce
     //Post ima lajk od Nemanje i srce od Milana.
 
-
-
-//    public void reaguj(Reakcija novaReakcija) {
-//        //this.nizReakcija.add(novaReakcija);
-//        for (int i = 0; i < nizReakcija.size(); i++) {
-//            if (this.nizReakcija.get(i).getImePrezime().equals(novaReakcija.getImePrezime())) {
-//                nizReakcija.remove(i);
-//            }
-//        }
-//        this.nizReakcija.add(novaReakcija);
-//    }
 
 
     public void dodajIliPromeniReakciju(Reakcija reakcija) {

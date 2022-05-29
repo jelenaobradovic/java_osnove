@@ -24,5 +24,6 @@ public class FacebookPostReakcijaMain {
 
 
         saljemPozdrave.stampa();
+        srecanRodjendan.stampa();
     }
 }
