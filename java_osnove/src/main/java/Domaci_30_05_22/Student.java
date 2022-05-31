@@ -85,6 +85,6 @@ public class Student {
             this.ispiti.get(i).stampa();
 
         }
-
+        System.out.println("Prosecna ocena je: " + prosekPolozenihIspita());
     }
 }
