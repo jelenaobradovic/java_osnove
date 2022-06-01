@@ -1,5 +1,8 @@
 package Domaci_31_05_22Osoba_Igrac_trener;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class MainOIT {
     public static void main(String[] args) {
 
@@ -18,5 +21,6 @@ public class MainOIT {
 
         trener2.stampaj();
         igrac1.stampaj();
+
     }
 }
