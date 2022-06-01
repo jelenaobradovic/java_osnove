@@ -5,11 +5,10 @@ public class IgracKartonOsoba_Main {
 
 
 
-        Karton karton1 = new Karton("Joca Jocic","2602984",1984, "zuti" );
-        Karton karton2 = new Karton("Joca Jocic","2602984",1984, "zuti");
-        Karton karton3 = new Karton("Joca Jocic","2602984",1984, "crveni");
-        Karton karton4 = new Karton("Nikola Petrovic","2602984",1986, "crveni");
-        Karton karton5 = new Karton("Petar Nikolic","2202989",1989, "zuti");
+        Karton karton1 = new Karton("zuti");
+        Karton karton2 = new Karton("zuti");
+        Karton karton3 = new Karton("crveni");
+
 
         Igrac igrac1 = new Igrac("Joca Jocic","2602984",1984, 15,
                 "napad", true );
@@ -17,9 +16,8 @@ public class IgracKartonOsoba_Main {
                 1988, 2, "odbrana", false);
 
         igrac1.dodajKarton(karton3);
-        igrac1.dodajKarton(karton2);
         igrac1.dodajKarton(karton1);
-
+        igrac1.dodajKarton(karton1);
         System.out.println(igrac1.brojZutihKartona());
 
         igrac1.stampaj();
