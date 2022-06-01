@@ -1,4 +1,4 @@
-package Cas_4_05_22_klaseIObjekti;
+package Cas_24_05_22_klaseIObjekti;
 
 public class ViberKorisnik {
     //Kreirati klasu ViberKorisnik koja ima:

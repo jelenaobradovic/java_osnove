@@ -1,4 +1,4 @@
-package Cas_4_05_22_klaseIObjekti;
+package Cas_24_05_22_klaseIObjekti;
 
 import java.util.ArrayList;
 import java.util.Scanner;

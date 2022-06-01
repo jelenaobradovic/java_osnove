@@ -50,7 +50,7 @@ public class Ispit {
 
     public boolean daLiJeIspitPolozen ()
 
-    {if(this.ocena>5 && this.ocena<=10)
+    {if (this.ocena>5 && this.ocena<=10)
     {return true;}
         else {return false;}
 

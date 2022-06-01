@@ -1,4 +1,4 @@
-package Cas_4_05_22_klaseIObjekti;
+package Cas_24_05_22_klaseIObjekti;
 
 public class FizickoLice {
     //Za potrebe agencije za nekretnine kreirati  klasu FizickoLice koje ima:
