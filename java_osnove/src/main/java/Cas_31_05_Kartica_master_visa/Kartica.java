@@ -1,4 +1,4 @@
-package Kartica_master_visa;
+package Cas_31_05_Kartica_master_visa;
 
 public class Kartica {
 //    Napraviti klasu PlatnaKartica koja ima
