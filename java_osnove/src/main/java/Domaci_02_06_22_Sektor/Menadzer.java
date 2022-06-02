@@ -5,6 +5,7 @@ public class Menadzer extends Radnik{
     // override uje metodu za platu. Plata se racuna kao suma svih plata po sektorima.
 
 
+
     @Override
     public double plataRadnika() {
         double suma=0;

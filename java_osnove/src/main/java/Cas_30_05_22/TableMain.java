@@ -12,22 +12,22 @@ public class TableMain {
         headerTabela1.addheaderCell("e-mail");
 
         TableRow red1Tabela1 = new TableRow();
-        red1Tabela1.addRowCell("Jovana");
-        red1Tabela1.addRowCell("Petrovic");
-        red1Tabela1.addRowCell("jpetrovic@gmail.com");
+        red1Tabela1.dodajCelijuURed("Jovana");
+        red1Tabela1.dodajCelijuURed("Petrovic");
+        red1Tabela1.dodajCelijuURed("jpetrovic@gmail.com");
 
         TableRow red2Tabela1 = new TableRow();
-        red2Tabela1.addRowCell("Jovan");
-        red2Tabela1.addRowCell("Jovanovic");
-        red2Tabela1.addRowCell("jjovanovic@gmail.com");
+        red2Tabela1.dodajCelijuURed("Jovan");
+        red2Tabela1.dodajCelijuURed("Jovanovic");
+        red2Tabela1.dodajCelijuURed("jjovanovic@gmail.com");
 
 
-
-        Table tabela1 = new Table(headerTabela1);
-        tabela1.dodavanjeReda(red1Tabela1);
-        tabela1.dodavanjeReda(red2Tabela1);
-
-
-        tabela1.stampaHeaderaIRedova();
+//
+//        Table tabela1 = new Table(headerTabela1);
+//        tabela1.dodavanjeReda(red1Tabela1);
+//        tabela1.dodavanjeReda(red2Tabela1);
+//
+//
+//        tabela1.stampaHeaderaIRedova();
     }
 }

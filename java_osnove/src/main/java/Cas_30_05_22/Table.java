@@ -14,9 +14,6 @@ public class Table {
     private TableHeader headerTable;
     private ArrayList<TableRow> nizRedova = new ArrayList<>();
 
-    public Table(TableHeader headerTable) {
-        this.headerTable = headerTable;
-    }
 
     public void setHeaderTable(TableHeader headerTable) {
         this.headerTable = headerTable;
@@ -27,12 +24,11 @@ public class Table {
     }
 
     public void stampaHeaderaIRedova() {
-       this.headerTable.printHeader();
-        for (int i = 0; i < this.nizRedova.size(); i++)
-        {
-           nizRedova.get(i).stampa();
+        this.headerTable.printHeader();
+        for (int i = 0; i < this.nizRedova.size(); i++) {
+            nizRedova.get(i).stampa();
         }
-        }
+    }
 
     //metodu za stampu HTML-a tabele.Primer
     //<table>
@@ -47,10 +43,7 @@ public class Table {
     //</table>
 
 
-
-
-
-        }
+}
 
 
 
