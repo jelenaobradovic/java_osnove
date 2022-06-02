@@ -22,5 +22,17 @@ public class MainOIT {
         trener2.stampaj();
         igrac1.stampaj();
 
+        //(Za vezbanje) U glavnom programu kreirati
+        // niz igraca i niz trenera,
+        // na kraju programa ispisati sve igrace i trenere.
+        // Podatke za igrace i trenere unosi korisnik sa tastature.
+
+        Scanner s = new Scanner(System.in);
+        System.out.println("Unesite broj igraca i broj trenera: ");
+        int BrojIgraca=s.nextInt();
+        int brojtrenera = s.nextInt();
+
+
+
     }
 }
