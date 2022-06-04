@@ -1,4 +1,4 @@
-package Cas_03_06_Ice_Point;
+package Cas_03_06_IcePoint;
 
 import java.util.ArrayList;
 
