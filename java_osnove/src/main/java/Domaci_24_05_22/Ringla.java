@@ -88,7 +88,7 @@ public class Ringla {
     //Grejac: jacina grejaca kW
 
     public void stampa() {
-        if (this.daLiJeRinglaUkljucena() == true) {
+        if (this.daLiJeRinglaUkljucena()) {
             System.out.println("Ringla je ukljucena.");
         } else {
             System.out.println("Ringla je iskljucena.");
@@ -97,7 +97,6 @@ public class Ringla {
         System.out.println("Jacina: " + this.jacinaRingle);
         System.out.println("Grejac" + this.jacinaGrejaca + "kW");
         System.out.println();
-
 
     }
 }

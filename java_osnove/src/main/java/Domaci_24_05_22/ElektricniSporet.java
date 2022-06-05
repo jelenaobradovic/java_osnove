@@ -1,6 +1,7 @@
 package Domaci_24_05_22;
 
 public class ElektricniSporet {
+
     //Kreirati klasu ElektricniSporet koja ima:
     //marku storeta (npr: Beko, Bosh)
     //garanciju kao broj godina
@@ -26,7 +27,9 @@ public class ElektricniSporet {
     public ElektricniSporet() {
     }
 
-    public ElektricniSporet(String markaSporeta, int garancija, int maxBrUkljRingli, Ringla ringlaDoleLevo, Ringla ringlaDoleDesno, Ringla ringlaGoreDesno, Ringla ringlaGoreLevo) {
+    public ElektricniSporet(String markaSporeta, int garancija, int maxBrUkljRingli,
+                            Ringla ringlaDoleLevo, Ringla ringlaDoleDesno,
+                            Ringla ringlaGoreDesno, Ringla ringlaGoreLevo) {
         this.markaSporeta = markaSporeta;
         this.garancija = garancija;
         this.maxBrUkljRingli = maxBrUkljRingli;
@@ -71,11 +74,18 @@ public class ElektricniSporet {
     //pozicija 3 je ringla dole levo
     //pozicija 4 je ringla dole desno
 
-        public void pojacaj (Ringla pozicija)
-        {if (pozicija.equals(1))
-        {pozicija.pojacajRinglu();}
-
+    public void pojacaj(int pozicija) {
+        if (pozicija == 1) {
+            this.ringlaGoreLevo.pojacajRinglu();
+        } else if (pozicija == 2) {
+            this.ringlaGoreDesno.pojacajRinglu();
+        } else if (pozicija == 3) {
+            this.ringlaDoleLevo.pojacajRinglu();
+        } else {
+            this.ringlaDoleDesno.pojacajRinglu();
         }
+        this.prekoracenjeBrojaukljucenihRingli(pozicija);
+    }
 
     //metodu iskljuci ringlu kojoj se prosledjuje pozicija ringle
     //pozicija 1 je ringla gore levo
@@ -83,37 +93,73 @@ public class ElektricniSporet {
     //pozicija 3 je ringla dole levo
     //pozicija 4 je ringla dole desno
 
-    public void iskljuciRingluES (Ringla pozicija)
-    {
-        pozicija.iskljuciRinglu();
+    public void iskljuciRingluES(int pozicija) {
+        if (pozicija == 1) {
+            this.ringlaGoreLevo.iskljuciRinglu();
+        } else if (pozicija == 2) {
+            this.ringlaGoreDesno.iskljuciRinglu();
+        } else if (pozicija == 3) {
+            this.ringlaDoleLevo.iskljuciRinglu();
+        } else {
+            this.ringlaDoleDesno.iskljuciRinglu();
+        }
     }
 
-    //Ako se prelazi maksimalan broj ukljucenih ringli u jednom trenutku, pogasite sve ringle sem one koja se pojacava
+    //Ako se prelazi maksimalan broj ukljucenih ringli u jednom trenutku,
+    // pogasite sve ringle sem one koja se pojacava
     // u tom pozivu funkije
     //Za gasenje ringli iskoristite metodu koja je definisana
 
-    public void prekoracenjeBrojaukljucenihRingli (Ringla ringla)
-    {int brojac = 0;
-        if (this.ringlaGoreLevo.daLiJeRinglaUkljucena()==true)
-        {brojac++;}
-        if(this.ringlaGoreDesno.daLiJeRinglaUkljucena()==true)
-        {brojac++;}
-            if (this.ringlaDoleDesno.daLiJeRinglaUkljucena()==true)
-            {brojac++;}
-            if (this.ringlaDoleLevo.daLiJeRinglaUkljucena()==true)
-            {brojac++;}
-            if (brojac<this.maxBrUkljRingli)
-            {this.pojacaj(ringla);}
-            else
-            {
-                for (int i = 0; i < 4; i++) {
-                    iskljuciRingluES(ringla);
-
-                }
-            }
+    public void prekoracenjeBrojaukljucenihRingli(int pozicija) {
+        int brojac = 0;
+        if (this.ringlaGoreLevo.daLiJeRinglaUkljucena() == true) {
+            brojac++;
         }
+        if (this.ringlaGoreDesno.daLiJeRinglaUkljucena() == true) {
+            brojac++;
+        }
+        if (this.ringlaDoleDesno.daLiJeRinglaUkljucena() == true) {
+            brojac++;
+        }
+        if (this.ringlaDoleLevo.daLiJeRinglaUkljucena() == true) {
+            brojac++;
+        }
+        if (brojac > this.maxBrUkljRingli) {
+            for (int i = 0; i < 4; i++) {
+                iskljuciRingluES(i);
 
+            }
 
-    //metodu koja racuna i vraca ukupnu potrosnju za ceo elektricni sporet, tako sto sabira potrosnju za sve ringle (kao parametar se unosi vreme koliko vec ringle rade)
+            this.pojacaj(pozicija);
+        }
+    }
+
+    //metodu koja racuna i vraca ukupnu potrosnju za ceo elektricni sporet,
+    // tako sto sabira potrosnju za sve ringle (kao parametar se unosi vreme koliko vec ringle rade)
+
+    public double racunajPotrosnju(int vreme1, int vreme2, int vreme3, int vreme4) {
+        return this.ringlaDoleDesno.potrosnjaElEnergije(vreme1) +
+                this.ringlaDoleLevo.potrosnjaElEnergije(vreme2) +
+                this.ringlaGoreDesno.potrosnjaElEnergije(vreme3) +
+                this.ringlaDoleLevo.potrosnjaElEnergije(vreme4);
+    }
+
     //metodu koja stampa podatke u formatu:
+
+    public void stamaj() {
+        System.out.println(this.markaSporeta + " - " + this.garancija);
+        System.out.println("Gore levo: ");
+        this.ringlaGoreLevo.stampa();
+        System.out.println("Gore desno: ");
+        this.ringlaGoreDesno.stampa();
+        System.out.println("Dole levo: ");
+        this.ringlaDoleLevo.stampa();
+        System.out.println("Donje desno: ");
+        this.ringlaDoleDesno.stampa();
+    }
 }
+
+
+
+
+
