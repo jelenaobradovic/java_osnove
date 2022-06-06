@@ -26,6 +26,7 @@ public class TableRow {
 
     public void stampa() {
         for (int i = 0; i < this.nizCelijaRed.size(); i++) {
+            System.out.print(this.nizCelijaRed.get(i) + "//t//t|//t//");
         }
         System.out.println();
     }

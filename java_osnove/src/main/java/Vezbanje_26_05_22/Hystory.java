@@ -6,43 +6,42 @@ public class Hystory {
     //Klasu History koja ima:
     //niz stranica koje su posecene
 
-    private ArrayList <HystoryPage> nizStranica= new ArrayList<>();
+    private ArrayList<HystoryPage> nizStranica = new ArrayList<>();
 
 
     //metoda otvori stranicu koja dodaje novi historypage u niz.
 
-    public void otvoristranicu (HystoryPage stranica)
-    {
-        nizStranica.add( stranica);
+    public void otvoristranicu(HystoryPage stranica) {
+        nizStranica.add(stranica);
 
     }
     //metodu obrisi prema linku - metoda koja iz niza izbacuje stranicu prema linku
 
-    public void obrisiStranicu (HystoryPage link)
-    {
-        for (int i = 0; i <this.nizStranica.size() ; i++)
-        {
-            if(link.equals(nizStranica.get(i).getLinkDoStranice()))
-            {nizStranica.remove(i);}
+    public void obrisiStranicu(String link) {
+        for (int i = 0; i < this.nizStranica.size(); i++) {
+            if (link.equals(nizStranica.get(i).getLinkDoStranice())) {
+                nizStranica.remove(i);
+            }
 
         }
     }
+
     //metoda obrisi kolacice za link - metoda koja za homepage brise kolacice
 
-    public void obrisiKolaciceLink (HystoryPage link)
-    {
+    public void obrisiKolaciceLink(String link) {
         for (int i = 0; i < this.nizStranica.size(); i++) {
 
-        if(link.equals(nizStranica.get(i).getLinkDoStranice()))
-        {nizStranica.get(i).obrisiKolaciceHP();}
+            if (link.equals(nizStranica.get(i).getLinkDoStranice())) {
+                nizStranica.get(i).obrisiKolaciceHP();
+            }
 
-        }}
+        }
+    }
 
 
     //metoda obrisi istoriju - metoda brise celu istoriju
 
-    public void obrisiIstoriju ()
-    {
+    public void obrisiIstoriju() {
         for (int i = 0; i < this.nizStranica.size(); i++) {
             nizStranica.remove(i);
 
@@ -50,32 +49,27 @@ public class Hystory {
     }
 
 
-
     //metoda sacuvajKredencija - od parametara se prima naziv stranice i
     // username i password koji se cuvaju.
 
 
-
     //metoda pogledajIstoriju - stampa sve posecene stranice
-    public void pogledajIstoriju ()
-    {
+    public void pogledajIstoriju() {
         for (int i = 0; i < nizStranica.size(); i++) {
-            System.out.println(this.nizStranica.get(i).getNazivStranice());
 
+            this.nizStranica.get(i).stampa();
         }
     }
     //metoda obrisiSveKolacice - metoda brise kredencijale za sve stranice.
 
-    public void obrisiSveKolacice ()
-    {
+    public void obrisiSveKolacice() {
         for (int i = 0; i < this.nizStranica.size(); i++) {
 
-            if(!this.nizStranica.get(i).getPassword().equals(null)&&
-                    !this.nizStranica.get(i).getUsername().equals(null))
-            {this.nizStranica.get(i).obrisiKolaciceHP();}
+                this.nizStranica.get(i).obrisiKolaciceHP();
+            }
 
         }
-    }
+
 
 
     //metoda obrisiSveKolaciceZaSadnjihSatVremena-  brise kolacice

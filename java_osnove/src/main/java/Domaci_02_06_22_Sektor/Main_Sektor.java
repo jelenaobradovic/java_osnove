@@ -7,7 +7,7 @@ public class Main_Sektor {
       //U glavnom programu kreirati jednog magacionera i
         // jednog menadzera, postaviti sektore u kojima rade i ispisati platu za svakog
 
-    Sektor lekovi = new Sektor("Lekovi", 55000);
+    Sektor lekovi = new Sektor("Lekovi", 60000);
     Sektor kozmetika = new Sektor("Kozmetika", 50000);
     Sektor medPomagala = new Sektor("Medicinska pomagala", 45000);
 
@@ -33,8 +33,6 @@ public class Main_Sektor {
 
         }
 
-
-
-
     }
 }
+

@@ -22,5 +22,6 @@ public class Main {
                 110, false, 25);
 
         t1.stampaj();
+        System.out.println("Tezina pakovanja: " + t1.tezinaPakovanja());
     }
 }

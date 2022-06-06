@@ -8,6 +8,7 @@ public class Sektor {
     private String naziv;
     private double plata;
 
+
     public Sektor(String naziv, double plata) {
         this.naziv = naziv;
         this.plata = plata;
@@ -17,7 +18,12 @@ public class Sektor {
         return naziv;
     }
 
+
+
+
     public double getPlata() {
         return plata;
     }
+
+
 }

@@ -22,12 +22,15 @@ public class TableMain {
         red2Tabela1.dodajCelijuURed("jjovanovic@gmail.com");
 
 
-//
-//        Table tabela1 = new Table(headerTabela1);
-//        tabela1.dodavanjeReda(red1Tabela1);
-//        tabela1.dodavanjeReda(red2Tabela1);
-//
-//
-//        tabela1.stampaHeaderaIRedova();
+
+      Table tabela1 = new Table();
+      tabela1.setHeaderTable(headerTabela1);
+      tabela1.dodavanjeReda(red1Tabela1);
+      tabela1.dodavanjeReda(red2Tabela1);
+
+
+        tabela1.stampaHeaderaIRedova();
+
+
     }
 }

@@ -1,4 +1,4 @@
-package Cas_31_05_22_nasledjivanje;
+package Cas_31_05_22_OsobaProfesorStudent;
 
 public class Student extends Osoba {
     //Kreirati klasu Student koja nasledjuje klasu Osoba,

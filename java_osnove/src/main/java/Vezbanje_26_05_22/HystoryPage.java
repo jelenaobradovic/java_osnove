@@ -91,8 +91,15 @@ public class HystoryPage {
     //[datum] - [ naziv ]…[ link ] [Ako postoje kredencijali stampa se zvezdica pored linka]
 
     public void stampa ()
-    {if(this.getUsername()!=null)
-    {}}
 
-    }
+    {
+        System.out.println(this.vremeOtvaranjaSat + " : " + this.vremeOtvaranjaMin + " - "
+                + this.nazivStranice + " - " + this.linkDoStranice);
+        {
+            if (this.getUsername() != null) {
+                System.out.println("****");
+            }
+
+
+        }}}
 

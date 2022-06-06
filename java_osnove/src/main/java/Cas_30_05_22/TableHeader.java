@@ -37,7 +37,7 @@ public class TableHeader {
 
 
     public void printHTML() {
-        System.out.print("<tr>");
+        System.out.println("<tr>");
         for (int i = 0; i < this.nizCelijaHeader.size(); i++) {
 
             System.out.print("<th>" + this.nizCelijaHeader.get(i) + "</th>");

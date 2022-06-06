@@ -1,4 +1,4 @@
-package Cas_31_05_22_nasledjivanje;
+package Cas_31_05_22_OsobaProfesorStudent;
 
 public class OsobaPrStMain {
     public static void main(String[] args) {
