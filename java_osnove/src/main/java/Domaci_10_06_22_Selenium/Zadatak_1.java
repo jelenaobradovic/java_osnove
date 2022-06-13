@@ -38,7 +38,7 @@ public class Zadatak_1 {
             nizXButton.get(i).click();
             Thread.sleep(1000);
             if (daLiElementPostoji(
-                    driver, By.xpath("//div[last()][@class='col-md-12']/div[last()]/button[last()]"))) {
+                    driver, By.xpath("//div[@class='col-md-12']/div/button[last()+1]"))) {
                 System.out.println("Element postoji");
             } else {
                 System.out.println("Element ne postoji");
@@ -53,6 +53,7 @@ public class Zadatak_1 {
         boolean elementPostoji = true;
         try {
             driver.findElement(by);
+            elementPostoji=true;
         } catch (Exception e) {
             elementPostoji = false;
         }
