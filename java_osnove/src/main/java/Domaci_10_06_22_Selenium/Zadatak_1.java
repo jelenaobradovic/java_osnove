@@ -34,21 +34,28 @@ public class Zadatak_1 {
         List<WebElement> nizXButton = driver.
                 findElements(By.xpath(button));
 
-        for (int i = nizXButton.size()-1; i >=0; i--) {
+        for (int i = nizXButton.size() - 1; i >= 0; i--) {
             nizXButton.get(i).click();
             Thread.sleep(1000);
-            try {nizXButton.get(i);
-                System.out.println("Element postoji");}
-            catch(Exception e){
+            if (daLiElementPostoji(
+                    driver, By.xpath("//div[last()][@class='col-md-12']/div[last()]/button[last()]"))) {
+                System.out.println("Element postoji");
+            } else {
                 System.out.println("Element ne postoji");
             }
 
-            }
-
-
-
-
+        }
 
         driver.quit();
+    }
+
+    public static boolean daLiElementPostoji(WebDriver driver, By by) {
+        boolean elementPostoji = true;
+        try {
+            driver.findElement(by);
+        } catch (Exception e) {
+            elementPostoji = false;
+        }
+        return elementPostoji;
     }
 }
