@@ -11,6 +11,7 @@ import java.io.File;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Zadatak_1 {
     public static void main(String[] args) throws InterruptedException {
@@ -50,7 +51,7 @@ public class Zadatak_1 {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         String url = "https://boomf.com/apps/proxy/boomf-bomb/i-bloody-love-you";
-        
+
         driver.navigate().to(url);
         driver.manage().window().maximize();
 
@@ -118,6 +119,13 @@ public class Zadatak_1 {
 
             Thread.sleep(1000);
         }
+
+        List <WebElement> konfete = driver.findElements(
+                By.xpath("//div[contains (@class,'sc-KfMfS cqhvkq')]/div/div"));
+
+        Random r = new Random(konfete.size());
+        int x = r.nextInt();
+        konfete.get(x).click();
 
         driver
                 .findElement(By.xpath("//*[@type='submit']"))
