@@ -120,24 +120,45 @@ public class Zadatak_1 {
             Thread.sleep(1000);
         }
 
-        List <WebElement> konfete = driver.findElements(
-                By.xpath("//div[contains (@class,'sc-KfMfS cqhvkq')]/div/div"));
+        List<WebElement> konfete = driver.findElements(
+                By.xpath("//div[contains (@class,'sc-gHLcSH fajlzv')]/div"));
 
-        Random r = new Random(konfete.size());
-        int x = r.nextInt();
+        System.out.println(konfete.size());
+
+        Random r = new Random();
+
+        int x = r.nextInt(konfete.size());
+
         konfete.get(x).click();
 
         driver
                 .findElement(By.xpath("//*[@type='submit']"))
                 .click();
 
-        String errorMessage = driver.findElement(
-                By.xpath("//*[@action='error']")).getAttribute("action");
 
-        System.out.println("Pop up atribut: " + errorMessage);
+        // System.out.println("Pop up atribut: " + driver.findElement(
+        // By.xpath("//*[@action='error']")).getAttribute("action"));
+
+        if (elementExists(driver, By.xpath("//*[@action='error']"))) {
+            System.out.println("Error exists, ok");
+        } else {
+            System.out.println("Error doesn't exist, not ok");
+        }
 
         driver.quit();
 
 
+    }
+
+    public static boolean elementExists(WebDriver driver, By by) {
+        boolean elementExists = true;
+
+        try {
+            driver.findElement(by);
+            elementExists = true;
+        } catch (Exception e) {
+            elementExists = false;
+        }
+        return elementExists;
     }
 }

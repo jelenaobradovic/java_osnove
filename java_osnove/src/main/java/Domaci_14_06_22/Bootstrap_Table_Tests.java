@@ -1,14 +1,16 @@
 package Domaci_14_06_22;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Field;
 import java.time.Duration;
 import java.util.List;
 
@@ -34,6 +36,8 @@ public class Bootstrap_Table_Tests {
 
     @BeforeMethod
     public void beforeMethod() {
+
+            //Ucitati stranu /iframe/K5yrx
         driver.
                 get(baseURL + "/iframe/K5yrx");
     }
@@ -41,30 +45,16 @@ public class Bootstrap_Table_Tests {
     @Test(priority=10)
     public void editRow() {
 
-        //Podaci:
-        //First Name: ime polaznika
-        //Last Name: prezime polaznika
-        //Middle Name: srednje ime polanzika
-        //Koraci:
-        //Ucitati stranu /iframe/K5yrx
+
         //Verifikovati naslov stranice Table with Edit and Update Data - Bootsnipp.com
-        //Klik na Edit dugme prvog reda
-        //Sacekati da dijalog za Editovanje bude vidljiv
-        //Popuniti formu podacima.
-        //Bice potrebno da pre unosa tekst pobrisete tekst koji vec postoji,
-        // za to se koristi metoda clear. Koristan link
-        //Klik na Update dugme
-        //Sacekati da dijalog za Editovanje postane nevidljiv
-        //Verifikovati da se u First Name celiji prvog reda tabele javlja uneto ime
-        //Verifikovati da se u Last Name celiji prvog reda tabele javlja uneto prezime
-        //Verifikovati da se u Middle Name celiji prvog reda tabele javlja uneto srednje ime
-        //Za sve validacije ispisati odgovarajuce poruke u slucaju greske
-
-
 
         Assert.assertTrue(driver
                         .getTitle()
                         .equals("Table with Edit and Update Data - Bootsnipp.com"), "Invalid title");
+
+
+        //Klik na Edit dugme prvog reda
+        //Sacekati da dijalog za Editovanje bude vidljiv
 
         driver.findElement(
                         By.xpath("//button[contains (@class, 'update btn btn-warning btn-sm')]"))
@@ -75,6 +65,11 @@ public class Bootstrap_Table_Tests {
         wait.until(ExpectedConditions.
                         presenceOfElementLocated(By.className("modal-content")));
 
+        //Popuniti formu podacima.
+        //Bice potrebno da pre unosa tekst pobrisete tekst koji vec postoji,
+        // za to se koristi metoda clear. Koristan link
+
+
         driver.findElement(By.id("fn")).clear();
         driver.findElement(By.id("ln")).clear();
         driver.findElement(By.id("mn")).clear();
@@ -83,9 +78,17 @@ public class Bootstrap_Table_Tests {
         driver.findElement(By.id("ln")).sendKeys("Obradovic");
         driver.findElement(By.id("mn")).sendKeys("Radica");
 
+        //Klik na Update dugme
+        //Sacekati da dijalog za Editovanje postane nevidljiv
+
         driver.findElement(By.id("up")).click();
 
         wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.className("modal-content"))));
+
+        //Verifikovati da se u First Name celiji prvog reda tabele javlja uneto ime
+        //Verifikovati da se u Last Name celiji prvog reda tabele javlja uneto prezime
+        //Verifikovati da se u Middle Name celiji prvog reda tabele javlja uneto srednje ime
+        //Za sve validacije ispisati odgovarajuce poruke u slucaju greske
 
         String ime = driver.findElement(By.id("f1")).getText();
         String prezime = driver.findElement(By.id("l1")).getText();
@@ -104,35 +107,21 @@ public class Bootstrap_Table_Tests {
                 "Jovan",
                 "Incorrect middle name");
 
-
-
     }
 
 
    @Test (priority = 20)
-   public void checkInputTypes() {
+   public void deleteRow() {
 
 
-        //Test #2: Delete Row
-        //Podaci:
-        //First Name: ime polaznika
-        //Last Name: prezime polaznika
-        //Middle Name: srednje ime polanzika
-        //Koraci:
-        //Ucitati stranu /iframe/K5yrx
         //Verifikovati naslov stranice Table with Edit and Update Data - Bootsnipp.com
-        //Klik na Delete dugme prvog reda
-        //Sacekati da dijalog za brisanje bude vidljiv
-        //Klik na Delete dugme iz dijaloga
-        //Sacekati da dijalog za Editovanje postane nevidljiv
-        //Verifikovati da je broj redova u tabeli za jedan manji
-        //Za sve validacije ispisati odgovarajuce poruke u slucaju greske
-
-
 
        Assert.assertTrue(driver.getTitle()
                        .equals("Table with Edit and Update Data - Bootsnipp.co"),
                "Incorrect title");
+
+
+       //Klik na Delete dugme prvog reda
 
        driver.findElement(
                By.xpath("//button[contains(@class, 'delete')]"))
@@ -140,9 +129,9 @@ public class Bootstrap_Table_Tests {
 
 
 
-       driver.findElement(
-               By.id("del"))
-               .click();
+       //Sacekati da dijalog za brisanje bude vidljiv
+       //Klik na Delete dugme iz dijaloga
+       //Sacekati da dijalog za Editovanje postane nevidljiv
 
        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -154,6 +143,10 @@ public class Bootstrap_Table_Tests {
        wait.until(
                ExpectedConditions.invisibilityOf(driver.findElement(By.id("delete"))));
 
+       //Verifikovati da je broj redova u tabeli za jedan manji
+       //Za sve validacije ispisati odgovarajuce poruke u slucaju greske
+
+
        List<WebElement> rows = driver.findElements(By.xpath("//table/tbody/tr"));
 
        Assert.assertTrue(rows.isEmpty(), " Row is not deleted");
@@ -162,14 +155,24 @@ public class Bootstrap_Table_Tests {
    }
 
     @Test (priority = 30)
-    public void test3() {
-        //Test #3: Take a Screenshot
-        //Koraci:
-        //Ucitati stranu  /iframe/K5yrx
-        //Verifikovati naslov stranice Table with Edit and Update Data - Bootsnipp.com
-        //Kreirati screenshot stranice. Koristan link https://www.guru99.com/take-screenshot-selenium-webdriver.html
-        //Fajl cuvajte na putanji gde su vam bile slike od proslog domaceg. Na putanji: src/main/resources/nazivslike.png
+    public void takeAScreenShot() throws IOException {
 
+        //Verifikovati naslov stranice Table with Edit and Update Data - Bootsnipp.com
+
+        Assert.assertTrue(driver
+                .getTitle()
+                .equals("Table with Edit and Update Data - Bootsnipp.com"), "Invalid title");
+
+        //Kreirati screenshot stranice.
+        //Koristan link https://www.guru99.com/take-screenshot-selenium-webdriver.html
+        //Fajl cuvajte na putanji gde su vam bile slike od proslog domaceg.
+        // Na putanji: src/main/resources/nazivslike.png
+
+       // File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        //FileUtils.copyFile(screenshot, new File(""));
+
+        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(scrFile, new File("src/main/resources/screenshot1.png"));
     }
 
     @AfterMethod
@@ -177,12 +180,6 @@ public class Bootstrap_Table_Tests {
         this.driver.quit();
     }
 
-    @AfterClass
-
-    public void afterClass() {
-
-        System.out.println("AFTER CLASS");
-    }
 
 
 }
